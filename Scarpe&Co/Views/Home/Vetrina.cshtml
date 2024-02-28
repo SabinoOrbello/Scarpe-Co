@@ -1,0 +1,22 @@
+﻿@model List<Scarpe_Co.Models.Articolo>
+
+@{
+    ViewBag.Title = "Vetrina";
+}
+
+<h2>Vetrina</h2>
+
+<div class="d-flex gap-3">
+    @foreach (var prodotto in Model)
+    {
+
+        <div class="card" style="width: 18rem;">
+            <img src="@prodotto.ImmagineCopertina" class="prodotto" alt="Immagine di copertina" />
+            <div class="card-body">
+                <h5 class="card-title">@prodotto.Nome</h5>
+                <p class="card-text">Prezzo: € @prodotto.Prezzo</p>
+                <a>@Html.ActionLink("Dettagli", "Details", new { Id = prodotto.Id }, new { @class = "btn btn-success" })</a>
+            </div>
+        </div>
+    }
+</div>
